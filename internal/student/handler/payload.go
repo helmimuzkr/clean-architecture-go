@@ -5,7 +5,8 @@ type studentReponse struct {
 	NPM  int    `json:"npm"`
 	Name string `json:"name"`
 }
+
 type studentRequest struct {
-	NPM  int    `json:"npm"`
-	Name string `json:"name"`
+	NPM  int    `json:"npm,omitempty"`
+	Name string `json:"name,omitempty"`
 }

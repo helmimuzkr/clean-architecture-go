@@ -9,16 +9,25 @@ type Core struct {
 }
 
 type Handler interface {
-	GetStudentByID(ctx echo.Context) error
 	Create(ctx echo.Context) error
+	GetList(ctx echo.Context) error
+	GetStudentByID(ctx echo.Context) error
+	Update(ctx echo.Context) error
+	Delete(ctx echo.Context) error
 }
 
 type Service interface {
-	GetStudentByID(studentID int) (Core, error)
 	Create(studentCore Core) error
+	GetList() ([]Core, error)
+	GetStudentByID(studentID int) (Core, error)
+	Update(studentID int, studentCore Core) error
+	Delete(studentID int) error
 }
 
 type Repository interface {
-	GetStudentByID(studentID int) (Core, error)
 	Create(studentCore Core) error
+	GetList() ([]Core, error)
+	GetStudentByID(studentID int) (Core, error)
+	Update(studentID int, studentCore Core) error
+	Delete(studentID int) error
 }

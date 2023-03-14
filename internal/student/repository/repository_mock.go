@@ -43,3 +43,18 @@ func (srm *StudentRepositoryMock) Create(studentCore student.Core) error {
 // 	}
 
 // }
+
+func (srm *StudentRepositoryMock) GetList() ([]student.Core, error) {
+
+	return nil, nil
+}
+
+func (srm *StudentRepositoryMock) Update(studentID int, studentCore student.Core) error {
+
+	return nil
+}
+
+func (srm *StudentRepositoryMock) Delete(studentID int) error {
+
+	return nil
+}

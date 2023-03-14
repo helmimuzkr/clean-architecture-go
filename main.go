@@ -14,6 +14,7 @@ import (
 func main() {
 	conf := config.InitConfig()
 	db := database.InitMysql(conf)
+	database.MigrateMysql(db)
 
 	studentRepo := _studentRepository.New(db)
 	studentSrv := _studentService.New(studentRepo)
@@ -21,7 +22,10 @@ func main() {
 
 	e := echo.New()
 	e.POST("/students", studentHandler.Create)
+	e.GET("/students", studentHandler.GetList)
 	e.GET("/students/:student_id", studentHandler.GetStudentByID)
+	e.PATCH("/students/:student_id", studentHandler.Update)
+	e.DELETE("/students/:student_id", studentHandler.Delete)
 
 	if err := e.Start(":8000"); err != nil {
 		log.Fatal(err)
