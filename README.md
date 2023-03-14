@@ -1,4 +1,4 @@
-go-clean-architecture
+clean-architecture-go
 ├── config
 │   └── config.go
 ├── docs
@@ -24,6 +24,7 @@ go-clean-architecture
 │   │   └── third_party_api.go
 │   └── util
 │       └── copy.go
+├── Makefile
 ├── README.md
 ├── app.env
 ├── go.mod
